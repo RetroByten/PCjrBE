@@ -8,13 +8,16 @@
 #include "a_component.hpp"
 
 #include "c_halt.hpp"
+#include "c_clock.hpp"
 
 sysplanar pcjr;
 int main(int argc, char** arv){
 	std::cerr << "main::main() - entry" << std::endl;
 
-	c_halt my_halt;
-	pcjr.components.push_back(&my_halt);
+	pcjr.halt = false;
+
+	c_clock my_clock; pcjr.components.push_back(&my_clock);
+	c_halt my_halt; pcjr.components.push_back(&my_halt);
 
 	std::vector<a_component*>::iterator it;
 	std::vector<a_component*>::reverse_iterator rit;
@@ -32,6 +35,7 @@ int main(int argc, char** arv){
 		}
 	}
 
+	// Remove components
 	for (rit = pcjr.components.rbegin(); rit != pcjr.components.rend(); ++rit){
 		(*rit)->remove(&pcjr);
 	}
