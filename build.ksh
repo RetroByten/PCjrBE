@@ -3,5 +3,5 @@ if [[ ! -d ./bin ]]; then
 fi
 g++ -std=c++98 \
 	src/main.cpp \
-	src/component.cpp \
+	src/c_halt.cpp \
 	-o bin/jrbe
