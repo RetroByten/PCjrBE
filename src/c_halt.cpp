@@ -6,6 +6,7 @@
 
 void c_halt::install(sysplanar* my_sysplanar){
 	std::cerr << "c_halt::install()" << std::endl;
+	type_id = CE_SYSTEM_HALT;
 }
 void c_halt::tick(sysplanar* my_sysplanar){
 	std::cerr << "c_halt::tick()" << std::endl;
